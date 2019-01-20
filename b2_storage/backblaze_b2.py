@@ -84,7 +84,7 @@ class BackBlazeB2(object):
         BackBlaze B2 should  make an endpoint to retrieve buckets by its name.
         """
         headers = {'Authorization': self.authorization_token}
-        params = {'accountId': self.account_id}
+        params = {'accountId': self.account_id, 'bucketName': self.bucket_name}
         resp = requests.get(self._build_url("/b2api/v1/b2_list_buckets"), headers=headers, params=params).json()
         if 'buckets' in resp:
             buckets = resp['buckets']
